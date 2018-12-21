@@ -1,6 +1,7 @@
+from django.db.models import Prefetch
 from rest_framework import viewsets
 
-from .models import BlogPost
+from .models import BlogPost, Comment
 from .serializers import BlogPostSerializer
 
 
@@ -11,7 +12,10 @@ class BlogPostViewSet(viewsets.ModelViewSet):
             'author',
         )
         .prefetch_related(
-            'comments__author',
+            Prefetch(
+                'comments',
+                queryset=Comment.objects.select_related('author')
+            )
         )
     )
     serializer_class = BlogPostSerializer
