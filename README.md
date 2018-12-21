@@ -1,5 +1,5 @@
 # About
 
-This is example code for a blog post about normalizing Django REST Serialized data.
+This is example code for a blog post about optimizing Django REST Viewsets.
 
-Read more here: http://concisecoder.io/2018/11/17/normalize-your-django-rest-serializers/
+Read more here: [Link Coming Soon](concisecoder.io)
