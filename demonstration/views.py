@@ -10,6 +10,9 @@ class BlogPostViewSet(viewsets.ModelViewSet):
         .select_related(
             'author',
         )
+        .prefetch_related(
+            'comments__author',
+        )
     )
     serializer_class = BlogPostSerializer
 
