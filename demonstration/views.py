@@ -5,7 +5,12 @@ from .serializers import BlogPostSerializer
 
 
 class BlogPostViewSet(viewsets.ModelViewSet):
-    queryset = BlogPost.objects.all()
+    queryset = (
+        BlogPost.objects
+        .select_related(
+            'author',
+        )
+    )
     serializer_class = BlogPostSerializer
 
     def dispatch(self, *args, **kwargs):
